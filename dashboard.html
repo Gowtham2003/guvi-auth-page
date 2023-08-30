@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GUVI | Dashboard</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+
+    <!-- <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    /> -->
+    <link rel="stylesheet" href="css/fontawesome.min.css" />
+    <!-- <link rel="stylesheet" href="css/style.css" /> -->
+    <link rel="stylesheet" href="css/dashboard.css" />
+    <link rel="stylesheet" href="css/components.css" />
+  </head>
+  <body>
+    <!--===============================================================================================-->
+    <div class="main-wrapper main-wrapper-1">
+      <div class="navbar-bg"></div>
+      <nav class="navbar navbar-expand-lg main-navbar">
+        <form class="form-inline mr-auto">
+          <ul class="navbar-nav mr-3">
+            <li>
+              <a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"
+                ><i class="fas fa-bars"></i
+              ></a>
+            </li>
+          </ul>
+        </form>
+      </nav>
+      <div
+        class="main-sidebar sidebar-style-2"
+        style="overflow: hidden; outline: none"
+        tabindex="1"
+      >
+        <aside id="sidebar-wrapper">
+          <div class="sidebar-brand">
+            <a href="index.html">GUVI</a>
+          </div>
+          <div class="sidebar-brand sidebar-brand-sm">
+            <a href="index.html">GUVI</a>
+          </div>
+          <ul class="sidebar-menu">
+            <li>
+              <a class="nav-link" href="dashboard.html" style="cursor: pointer"
+                ><i class="fas fa-home"></i> <span>Dashboard</span></a
+              >
+            </li>
+            <li>
+              <a
+                class="nav-link"
+                id="change-password-nav"
+                style="cursor: pointer"
+                ><i class="fas fa-user"></i> <span>Change Password</span></a
+              >
+            </li>
+            <li>
+              <a class="nav-link" id="logout" style="cursor: pointer"
+                ><i class="fas fa-key"></i> <span>Logout</span></a
+              >
+            </li>
+          </ul>
+        </aside>
+      </div>
+
+      <!-- Main Content -->
+      <div class="main-content" style="min-height: 423px">
+        <section class="section">
+          <div class="section-body" id="content-body">
+            <div class="d-flex justify-content-between my-5">
+              <h2>Personal Info</h2>
+              <button class="btn btn-primary ml-5" id="edit-info-toggle">
+                Edit Info
+              </button>
+            </div>
+            <table class="table table-bordered mt-5" id="info-table">
+              <tbody>
+                <tr>
+                  <td>Name</td>
+                  <td id="info-name"></td>
+                </tr>
+                <tr>
+                  <td>Contact No</td>
+                  <td id="info-contact-no"></td>
+                </tr>
+                <tr>
+                  <td>Email</td>
+                  <td id="info-email"></td>
+                </tr>
+                <tr>
+                  <td>Date of Birth</td>
+                  <td id="info-dob"></td>
+                </tr>
+                <tr>
+                  <td>Age</td>
+                  <td id="info-age"></td>
+                </tr>
+              </tbody>
+            </table>
+
+            <form id="info-form" class="d-none">
+              <div class="form-group row">
+                <label for="name" class="col-sm-3 control-label col-form-label"
+                  >Name</label
+                >
+                <div class="col-sm-9">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="name"
+                    placeholder="Name"
+                    name="name"
+                  />
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="phone" class="col-sm-3 control-label col-form-label"
+                  >Contact No</label
+                >
+                <div class="col-sm-9">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="phone"
+                    placeholder="Contact No"
+                    name="phone"
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label
+                  for="username"
+                  class="col-sm-3 control-label col-form-label"
+                  >Email</label
+                >
+                <div class="col-sm-9">
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="username"
+                    placeholder="Email"
+                    name="username"
+                  />
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="date" class="col-sm-3 control-label col-form-label"
+                  >Date of Birth</label
+                >
+                <div class="col-sm-3">
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="date"
+                    name="dob"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <button type="submit" class="btn btn-primary">Update</button>
+              </div>
+            </form>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <!--===============================================================================================-->
+    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <!--===============================================================================================-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://demo.getstisla.com/assets/modules/nicescroll/jquery.nicescroll.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="js/stisla.js"></script>
+    <script>
+      function fetchData() {
+        $.ajax({
+          url: "php/profile.php",
+          type: "GET",
+          success: function ({ success, data }) {
+            if (success) {
+              $("#container").removeClass("d-none");
+              // fill form with data
+              $("#info-name").text(data["name"]);
+              $("#info-contact-no").text(data["phone"]);
+              $("#info-email").text(data["username"]);
+              $("#info-dob").text(data["dob"]);
+              $("#info-age").text(data["age"]);
+
+              $("#name").val(data["name"]);
+              $("#phone").val(data["phone"]);
+              $("#username").val(data["username"]);
+              if (data["dob"] == null) {
+                // set current locale date
+                var today = new Date();
+                var dd = String(today.getDate()).padStart(2, "0");
+                var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+                var yyyy = today.getFullYear();
+
+                today = yyyy + "-" + mm + "-" + dd;
+                $("#date").val(today);
+              } else $("#date").val(data["dob"]);
+            }
+          },
+          error: function (xhr, status, error) {
+            console.log(xhr, status, error);
+            if (xhr.status === 401) {
+              // Redirect to login page if authentication is required
+              window.location.href = "index.html";
+            } else {
+              swal("Error!", "Could not process your request!", "error");
+            }
+          },
+        });
+      }
+      $("#edit-info-toggle").click(function () {
+        if ($("#info-form").hasClass("d-none")) {
+          $("#info-form").removeClass("d-none");
+          $("#info-table").addClass("d-none");
+        } else {
+          $("#info-form").addClass("d-none");
+          $("#info-table").removeClass("d-none");
+        }
+      });
+      $(document).ready(function () {
+        fetchData();
+      });
+      $("#info-form").submit(function (e) {
+        e.preventDefault();
+        var form = $(this);
+        $.ajax({
+          type: "PUT",
+          url: "php/profile.php",
+          data: form.serialize(),
+          success: function (data) {
+            if (data["success"]) {
+              swal("Success!", "Profile updated!", "success");
+              fetchData();
+              $("#info-form").addClass("d-none");
+              $("#info-table").removeClass("d-none");
+            } else {
+              swal("Error!", data["message"], "error");
+            }
+          },
+          error: function (err) {
+            swal("Error!", "Could not process your request!", "error");
+            console.log(err);
+          },
+        });
+      });
+      $("#logout").click(function () {
+        // Perform AJAX request to logout.php
+        $.ajax({
+          url: "php/logout.php",
+          method: "GET",
+          success: function (response) {
+            // Redirect to the login page after logout
+            window.location.href = "index.html";
+          },
+          error: function (xhr, status, error) {
+            // Handle errors
+            swal("Error!", "Could not process your request!", "error");
+            console.log("Logout error:", error);
+          },
+        });
+      });
+      $("#change-password-nav").click(function () {
+        // replace html with login page
+        $("#content-body").load("change-password.html");
+      });
+    </script>
+  </body>
+</html>
