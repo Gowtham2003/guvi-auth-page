@@ -172,6 +172,12 @@
           </div>
         </section>
       </div>
+      <footer class="main-footer">
+        <div class="footer-left">
+          Design By <a href="https://a1pha.rocks/">Gowtham</a>
+        </div>
+        <div class="footer-right"></div>
+      </footer>
     </div>
 
     <!--===============================================================================================-->
@@ -190,7 +196,7 @@
     <script>
       function fetchData() {
         $.ajax({
-          url: "php/profile.php",
+          url: "api/profile.php",
           type: "GET",
           success: function ({ success, data }) {
             if (success) {
@@ -245,7 +251,7 @@
         var form = $(this);
         $.ajax({
           type: "PUT",
-          url: "php/profile.php",
+          url: "api/profile.php",
           data: form.serialize(),
           success: function (data) {
             if (data["success"]) {
@@ -266,7 +272,7 @@
       $("#logout").click(function () {
         // Perform AJAX request to logout.php
         $.ajax({
-          url: "php/logout.php",
+          url: "api/logout.php",
           method: "GET",
           success: function (response) {
             // Redirect to the login page after logout

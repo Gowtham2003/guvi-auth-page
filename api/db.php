@@ -1,8 +1,19 @@
 <?php
-$host = 'localhost';
-$username = 'alpha';
-$password = '';
-$database = 'guvi';
+// $host = 'localhost';
+// $username = 'alpha';
+// $password = '';
+// $database = 'guvi';
+
+// Read environment variables
+$host = $_SERVER['HTTP_DB_HOST'] ?? 'localhost';
+$username = $_SERVER['HTTP_DB_USERNAME'] ?? 'alpha';
+$password = $_SERVER['HTTP_DB_PASSWORD'] ?? '';
+$database = $_SERVER['HTTP_DB_DATABASE'] ?? 'guvi';
+$port = $_SERVER['HTTP_DB_PORT'] ?? 3306;
+
+if (!$host || !$username || !$database) {
+    die("One or more environment variables not set.");
+}
 
 // Create a connection to the database
 $conn = new mysqli($host, $username, $password, $database);

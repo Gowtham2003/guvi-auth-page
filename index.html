@@ -107,7 +107,7 @@
       // check if user is logged in or not
       $.ajax({
         type: "GET",
-        url: "php/auth.php",
+        url: "api/auth.php",
         success: function (data) {
           window.location.href = "dashboard.html";
         },
@@ -118,7 +118,7 @@
 
         $.ajax({
           type: "POST",
-          url: "php/login.php",
+          url: "api/login.php",
           data: form.serialize(), // serializes the form's elements.
           success: function (data) {
             console.log(data);
