@@ -11,12 +11,6 @@
       crossorigin="anonymous"
     />
 
-    <!-- <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    /> -->
-    <link rel="stylesheet" href="css/fontawesome.min.css" />
-    <!-- <link rel="stylesheet" href="css/style.css" /> -->
     <link rel="stylesheet" href="css/dashboard.css" />
     <link rel="stylesheet" href="css/components.css" />
   </head>
@@ -28,9 +22,20 @@
         <form class="form-inline mr-auto">
           <ul class="navbar-nav mr-3">
             <li>
-              <a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"
-                ><i class="fas fa-bars"></i
-              ></a>
+              <a href="#" data-toggle="sidebar" class="nav-link nav-link-lg">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  style="height: 24px; color: white"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M2 6.75A.75.75 0 012.75 6h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 6.75zm0 6.5a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75a.75.75 0 01-.75-.75z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
             </li>
           </ul>
         </form>
@@ -48,22 +53,57 @@
             <a href="index.html">GUVI</a>
           </div>
           <ul class="sidebar-menu">
-            <li>
-              <a class="nav-link" href="dashboard.html" style="cursor: pointer"
-                ><i class="fas fa-home"></i> <span>Dashboard</span></a
+            <li class="d-flex justify-content-between align-items-center px-4">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                style="height: 24px"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M9.293 2.293a1 1 0 011.414 0l7 7A1 1 0 0117 11h-1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-3a1 1 0 00-1-1H9a1 1 0 00-1 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1v-6H3a1 1 0 01-.707-1.707l7-7z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              <a class="nav-link" href="dashboard.html" style="cursor: pointer">
+                <span>Dashboard</span></a
               >
             </li>
-            <li>
+            <li class="d-flex justify-content-between align-items-center px-4">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                style="height: 24px"
+              >
+                <path
+                  d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.784 6.131-2.1.43-.333.604-.903.408-1.41a7.002 7.002 0 00-13.074.003z"
+                />
+              </svg>
               <a
                 class="nav-link"
                 id="change-password-nav"
                 style="cursor: pointer"
-                ><i class="fas fa-user"></i> <span>Change Password</span></a
+              >
+                <span>Change Password</span></a
               >
             </li>
-            <li>
-              <a class="nav-link" id="logout" style="cursor: pointer"
-                ><i class="fas fa-key"></i> <span>Logout</span></a
+            <li class="d-flex justify-content-between align-items-center px-4">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                style="height: 24px"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M8 7a5 5 0 113.61 4.804l-1.903 1.903A1 1 0 019 14H8v1a1 1 0 01-1 1H6v1a1 1 0 01-1 1H3a1 1 0 01-1-1v-2a1 1 0 01.293-.707L8.196 8.39A5.002 5.002 0 018 7zm5-3a.75.75 0 000 1.5A1.5 1.5 0 0114.5 7 .75.75 0 0016 7a3 3 0 00-3-3z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              <a class="nav-link" id="logout" style="cursor: pointer">
+                <span>Logout</span></a
               >
             </li>
           </ul>
@@ -193,102 +233,6 @@
     <script src="https://demo.getstisla.com/assets/modules/nicescroll/jquery.nicescroll.min.js"></script>
     <script src="js/scripts.js"></script>
     <script src="js/stisla.js"></script>
-    <script>
-      function fetchData() {
-        $.ajax({
-          url: "api/profile.php",
-          type: "GET",
-          success: function ({ success, data }) {
-            if (success) {
-              $("#container").removeClass("d-none");
-              // fill form with data
-              $("#info-name").text(data["name"]);
-              $("#info-contact-no").text(data["phone"]);
-              $("#info-email").text(data["username"]);
-              $("#info-dob").text(data["dob"]);
-              $("#info-age").text(data["age"]);
-
-              $("#name").val(data["name"]);
-              $("#phone").val(data["phone"]);
-              $("#username").val(data["username"]);
-              if (data["dob"] == null) {
-                // set current locale date
-                var today = new Date();
-                var dd = String(today.getDate()).padStart(2, "0");
-                var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
-                var yyyy = today.getFullYear();
-
-                today = yyyy + "-" + mm + "-" + dd;
-                $("#date").val(today);
-              } else $("#date").val(data["dob"]);
-            }
-          },
-          error: function (xhr, status, error) {
-            console.log(xhr, status, error);
-            if (xhr.status === 401) {
-              // Redirect to login page if authentication is required
-              window.location.href = "index.html";
-            } else {
-              swal("Error!", "Could not process your request!", "error");
-            }
-          },
-        });
-      }
-      $("#edit-info-toggle").click(function () {
-        if ($("#info-form").hasClass("d-none")) {
-          $("#info-form").removeClass("d-none");
-          $("#info-table").addClass("d-none");
-        } else {
-          $("#info-form").addClass("d-none");
-          $("#info-table").removeClass("d-none");
-        }
-      });
-      $(document).ready(function () {
-        fetchData();
-      });
-      $("#info-form").submit(function (e) {
-        e.preventDefault();
-        var form = $(this);
-        $.ajax({
-          type: "PUT",
-          url: "api/profile.php",
-          data: form.serialize(),
-          success: function (data) {
-            if (data["success"]) {
-              swal("Success!", "Profile updated!", "success");
-              fetchData();
-              $("#info-form").addClass("d-none");
-              $("#info-table").removeClass("d-none");
-            } else {
-              swal("Error!", data["message"], "error");
-            }
-          },
-          error: function (err) {
-            swal("Error!", "Could not process your request!", "error");
-            console.log(err);
-          },
-        });
-      });
-      $("#logout").click(function () {
-        // Perform AJAX request to logout.php
-        $.ajax({
-          url: "api/logout.php",
-          method: "GET",
-          success: function (response) {
-            // Redirect to the login page after logout
-            window.location.href = "index.html";
-          },
-          error: function (xhr, status, error) {
-            // Handle errors
-            swal("Error!", "Could not process your request!", "error");
-            console.log("Logout error:", error);
-          },
-        });
-      });
-      $("#change-password-nav").click(function () {
-        // replace html with login page
-        $("#content-body").load("change-password.html");
-      });
-    </script>
+    <script src="js/dashboard.js"></script>
   </body>
 </html>
